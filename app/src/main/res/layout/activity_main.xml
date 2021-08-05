@@ -1,18 +1,209 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".MainActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_totalAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_keypad_one"
+            android:onClick="onKeypadBtnClick"
+            android:tag="1"
+            android:text="1"
+            style="@style/digit_style"
+            app:layout_constraintEnd_toStartOf="@id/tv_keypad_two"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_totalAmount" />
+
+        <TextView
+            android:id="@+id/tv_keypad_two"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/circular_background_btn"
+            android:gravity="center"
+            android:onClick="onKeypadBtnClick"
+            android:tag="2"
+            android:text="2"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toStartOf="@id/tv_keypad_three"
+            app:layout_constraintStart_toEndOf="@+id/tv_keypad_one"
+            app:layout_constraintTop_toBottomOf="@id/tv_totalAmount" />
+
+        <TextView
+            android:id="@+id/tv_keypad_three"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/circular_background_btn"
+            android:gravity="center"
+            android:onClick="onKeypadBtnClick"
+            android:tag="3"
+            android:text="3"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_keypad_two"
+            app:layout_constraintTop_toBottomOf="@id/tv_totalAmount" />
+
+        <TextView
+            android:id="@+id/tv_keypad_four"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/circular_background_btn"
+            android:gravity="center"
+            android:onClick="onKeypadBtnClick"
+            android:tag="4"
+            android:text="4"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toStartOf="@+id/tv_keypad_five"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_keypad_one" />
+
+        <TextView
+            android:id="@+id/tv_keypad_five"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/circular_background_btn"
+            android:gravity="center"
+            android:onClick="onKeypadBtnClick"
+            android:tag="5"
+            android:text="5"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toStartOf="@id/tv_keypad_six"
+            app:layout_constraintStart_toEndOf="@id/tv_keypad_four"
+            app:layout_constraintTop_toBottomOf="@id/tv_keypad_one" />
+
+        <TextView
+            android:id="@+id/tv_keypad_six"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/circular_background_btn"
+            android:gravity="center"
+            android:onClick="onKeypadBtnClick"
+            android:tag="6"
+            android:text="6"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_keypad_five"
+            app:layout_constraintTop_toBottomOf="@id/tv_keypad_one" />
+
+        <TextView
+            android:id="@+id/tv_keypad_seven"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/circular_background_btn"
+            android:gravity="center"
+            android:onClick="onKeypadBtnClick"
+            android:tag="7"
+            android:text="7"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toStartOf="@id/tv_keypad_eight"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_keypad_four" />
+
+        <TextView
+            android:id="@+id/tv_keypad_eight"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/circular_background_btn"
+            android:gravity="center"
+            android:onClick="onKeypadBtnClick"
+            android:tag="8"
+            android:text="8"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toStartOf="@id/tv_keypad_nine"
+            app:layout_constraintStart_toEndOf="@id/tv_keypad_seven"
+            app:layout_constraintTop_toBottomOf="@id/tv_keypad_four" />
+
+        <TextView
+            android:id="@+id/tv_keypad_nine"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/circular_background_btn"
+            android:gravity="center"
+            android:onClick="onKeypadBtnClick"
+            android:tag="9"
+            android:text="9"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_keypad_eight"
+            app:layout_constraintTop_toBottomOf="@id/tv_keypad_four" />
+
+        <TextView
+            android:id="@+id/tv_keypad_point"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/circular_background_btn"
+            android:gravity="center"
+            android:onClick="onKeypadBtnClick"
+            android:tag="7"
+            android:text="."
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toStartOf="@id/tv_keypad_zero"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_keypad_seven" />
+
+        <TextView
+            android:id="@+id/tv_keypad_zero"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/circular_background_btn"
+            android:gravity="center"
+            android:onClick="onKeypadBtnClick"
+            android:tag="0"
+            android:text="0"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toStartOf="@+id/tv_keypad_eight"
+            app:layout_constraintStart_toEndOf="@id/tv_keypad_eight"
+            app:layout_constraintTop_toBottomOf="@id/tv_keypad_eight" />
+        <ImageView
+            android:id="@+id/iv_clear_passcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circular_background_btn"
+            android:layout_marginTop="5dp"
+            android:onClick="clearPassCode"
+            android:src="@drawable/ic_outline_backspace_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_keypad_zero"
+            app:layout_constraintTop_toBottomOf="@id/tv_keypad_nine" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
