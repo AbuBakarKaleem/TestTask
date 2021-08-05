@@ -17,6 +17,11 @@
             android:id="@+id/tv_totalAmount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="AED 0.00"
+            android:textSize="45sp"
+            android:gravity="center"
+            android:fontFamily="@font/microsoft_yi_baiti"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
