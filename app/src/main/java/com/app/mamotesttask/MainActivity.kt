@@ -2,35 +2,46 @@ package com.app.mamotesttask
 
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatTextView
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var tv_totalAmount:AppCompatTextView
-
-    private var total_amount:Long= 0L
+    private lateinit var tv_totalAmount: AppCompatTextView
+    private var preFinalAmount = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        tv_totalAmount=findViewById(R.id.tv_totalAmount)
+        tv_totalAmount = findViewById(R.id.tv_totalAmount)
+        setFinalAmountToUI("0.00")
     }
+
     fun onKeypadBtnClick(view: View) {
-      /*  val textView: TextView = findViewById(view.id)
-        val inputPassCodeDigit = textView.text.toString()
-        count++
-        setPassCode(inputPassCodeDigit)*/
+        val textView: TextView = findViewById(view.id)
+        setPreFinalAmount(textView.text.toString())
+
     }
 
     fun clearPassCode(view: View?) {
-//        count = 0
-//        passCodeFirstDigit.setText("")
-//        passCodeSecondDigit.setText("")
-//        passCodeThirdDigit.setText("")
-//        passCodeFourthDigit.setText("")
-//        passCodeString = ""
-        total_amount=0L
-        tv_totalAmount.text=getString(R.string.aed_0_00)
+        tv_totalAmount.text = getString(R.string.currency)+" "+ getString(R.string.zero_amount)
+        preFinalAmount = ""
+    }
+
+    fun onPointBtnPressed(view: View) {
+        if (preFinalAmount.isEmpty().not()) {
+            if (preFinalAmount.contains(".").not()) {
+                setPreFinalAmount(".")
+            }
+        }
+    }
+
+    private fun setPreFinalAmount(amount: String) {
+        preFinalAmount += amount
+        setFinalAmountToUI(preFinalAmount)
+    }
+    private fun setFinalAmountToUI(value: String) {
+        tv_totalAmount.text = getString(R.string.currency) + " " + value
     }
 }

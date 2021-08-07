@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">MamoTestTask</string>
-    <string name="aed_0_00">AED 0.00</string>
+    <string name="zero_amount">0.00</string>
+    <string name="currency">AED </string>
 </resources>
